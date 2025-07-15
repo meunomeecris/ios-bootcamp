@@ -5,21 +5,17 @@ This repository contains all projects and exercises developed during my 6-month 
 I designed this program to go beyond tutorials and build real apps focused on:
 
 - SwiftUI
-- MVVM architecture
+- Swift Networking
 - Swift Concurrency
-- Persistence with Core Data
-- CI/CD and testing
+- Persistence Data
+- CI/CD and Unit Test
 - Keychain and app security
+- Modularization with SPM
 - Clean, professional code
 
 
 ## 📚 Courses Followed
-
-List of free and paid courses used during the program:  
-- Udacity: Firebase, Persistence, CI/CD...
-- LinkedIn Learning: Security, Design Patterns
-- OpenClassrooms: Testing, Core Data
-- YouTube: Swift Concurrency
+[Notion](https://www.notion.so/meunomeecris/22e1a82330ef8080b02dc96a0663dcb5?v=22e1a82330ef81da97cf000c725a595b&source=copy_link)
 
 
 ## 📸 Screenshots
