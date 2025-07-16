@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		8A51F4672E268ADE00B7E71A /* SwiftPratice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPratice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A51F4672E268ADE00B7E71A /* iosBootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosBootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8A51F4692E268ADE00B7E71A /* SwiftPratice */ = {
+		8A51F4692E268ADE00B7E71A /* iosBootcamp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftPratice;
+			path = iosBootcamp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		8A51F45E2E268ADE00B7E71A = {
 			isa = PBXGroup;
 			children = (
-				8A51F4692E268ADE00B7E71A /* SwiftPratice */,
+				8A51F4692E268ADE00B7E71A /* iosBootcamp */,
 				8A51F4682E268ADE00B7E71A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		8A51F4682E268ADE00B7E71A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A51F4672E268ADE00B7E71A /* SwiftPratice.app */,
+				8A51F4672E268ADE00B7E71A /* iosBootcamp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A51F4662E268ADE00B7E71A /* SwiftPratice */ = {
+		8A51F4662E268ADE00B7E71A /* iosBootcamp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A51F4722E268AE000B7E71A /* Build configuration list for PBXNativeTarget "SwiftPratice" */;
+			buildConfigurationList = 8A51F4722E268AE000B7E71A /* Build configuration list for PBXNativeTarget "iosBootcamp" */;
 			buildPhases = (
 				8A51F4632E268ADE00B7E71A /* Sources */,
 				8A51F4642E268ADE00B7E71A /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8A51F4692E268ADE00B7E71A /* SwiftPratice */,
+				8A51F4692E268ADE00B7E71A /* iosBootcamp */,
 			);
-			name = SwiftPratice;
+			name = iosBootcamp;
 			packageProductDependencies = (
 			);
 			productName = SwiftPratice;
-			productReference = 8A51F4672E268ADE00B7E71A /* SwiftPratice.app */;
+			productReference = 8A51F4672E268ADE00B7E71A /* iosBootcamp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A51F4622E268ADE00B7E71A /* Build configuration list for PBXProject "SwiftPratice" */;
+			buildConfigurationList = 8A51F4622E268ADE00B7E71A /* Build configuration list for PBXProject "iosBootcamp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A51F4662E268ADE00B7E71A /* SwiftPratice */,
+				8A51F4662E268ADE00B7E71A /* iosBootcamp */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A51F4622E268ADE00B7E71A /* Build configuration list for PBXProject "SwiftPratice" */ = {
+		8A51F4622E268ADE00B7E71A /* Build configuration list for PBXProject "iosBootcamp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A51F4702E268AE000B7E71A /* Debug */,
@@ -314,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A51F4722E268AE000B7E71A /* Build configuration list for PBXNativeTarget "SwiftPratice" */ = {
+		8A51F4722E268AE000B7E71A /* Build configuration list for PBXNativeTarget "iosBootcamp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A51F4732E268AE000B7E71A /* Debug */,
