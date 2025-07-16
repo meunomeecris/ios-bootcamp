@@ -13,8 +13,8 @@ class CatClientLive {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         
         let decoder = JSONDecoder()
-        let catDate = try decoder.decode([Cat].self, from: data)
+        let catData = try decoder.decode([Cat].self, from: data)
         
-        return catDate
+        return catData
     }
 }
