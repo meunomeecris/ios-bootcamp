@@ -10,7 +10,6 @@ import Foundation
     
     func loadCats() async {
         isLoading = true
-        errorMessage = nil
     
         do {
             cats = try await catClient.fechCats()
