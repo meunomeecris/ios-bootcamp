@@ -5,7 +5,8 @@ struct ContentView: View {
 //        PhotoView(store: PhotoStore())
 //        CatView(store: CatStore())
 //        BreweryView(store: BreweryStore())
-        RecipeView(store: RecipeStore())
+//        RecipeView(store: RecipeStore())
+        LocationView(store: LocationStore())
     }
 }
 
