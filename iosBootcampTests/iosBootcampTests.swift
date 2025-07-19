@@ -141,4 +141,21 @@ struct iosBootcampTests {
             await #expect(store.selectedPhoto == nil)
         }
     }
+    
+    @Suite("Alert Store")
+    struct AlertStoreTests {
+        @Test func showAlert() {
+            let store = AlertStore()
+            store.onShowAlertTapped(for: store.alertsData.first!)
+            #expect(store.showingAlert == true)
+            #expect(store.selectedAlert != nil)
+        }
+        
+        @Test func dismissAlert() {
+            let store = AlertStore()
+            store.dismissButtonAlert()
+            #expect(store.showingAlert == false)
+            #expect(store.selectedAlert == nil)
+        }
+    }
 }
