@@ -1,0 +1,22 @@
+[
+  {
+    "name": "T-shirt",
+    "price": 49.90
+  },
+  {
+    "name": "Tennis",
+    "price": 299.99
+  },
+  {
+    "name": "Backpack",
+    "price": 199.00
+  },
+  {
+    "name": "Socks",
+    "price": 19.00
+  },
+  {
+    "name": "Jeans",
+    "price": 149.00
+  },
+]
