@@ -43,6 +43,6 @@ struct BreweryView: View {
     }
 }
 
-#Preview {
-    BreweryView(store: BreweryStore())
-}
+//#Preview {
+//    BreweryView(store: BreweryStore())
+//}

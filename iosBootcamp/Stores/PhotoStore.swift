@@ -2,18 +2,20 @@ import Foundation
 
 @MainActor
 @Observable final class PhotoStore {
-    private var photosClient = PhotoClientMock()
+    private let photosClient: PhotoClient
+    
+    init(photoClient: PhotoClient) {
+        self.photosClient = photoClient
+    }
     
     var photos: [Photo] = []
     var isLoading = false
     var errorMessage: String?
-    
     var selectedPhoto: Photo? = nil
     
     func loadPhotos() async {
         isLoading = true
-        errorMessage = nil
-        
+    
         do {
             photos = try await photosClient.fetchPhotos()
         } catch {

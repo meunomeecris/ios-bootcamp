@@ -1,6 +1,6 @@
 import Foundation
 
-class CatClientLive {
+class CatClientLive: CatClient {
 
     func fechCats() async throws  -> [Cat] {
         guard let url = URL(string: "https://cataas.com/api/cats") else {
@@ -16,5 +16,18 @@ class CatClientLive {
         let catData = try decoder.decode([Cat].self, from: data)
         
         return catData
+    }
+}
+
+
+final class CatClientSucess: CatClient  {
+    func fechCats() async throws -> [Cat] {
+        return [Cat(id: "id", tags: ["Grey"])]
+    }
+}
+
+final class CatClientFailed: CatClient  {
+    func fechCats() async throws -> [Cat] {
+        throw URLError(.badURL)
     }
 }

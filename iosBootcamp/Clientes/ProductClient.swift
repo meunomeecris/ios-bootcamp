@@ -1,3 +1,3 @@
 protocol ProductClient {
-    func getProducts() async throws -> [Product]
+    func fetchProducts() async throws -> [Product]
 }

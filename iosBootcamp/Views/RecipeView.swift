@@ -42,7 +42,7 @@ struct RecipeView: View {
 }
 
 #Preview {
-    RecipeView(store: RecipeStore())
+    RecipeView(store: RecipeStore(recipeClient: RecipeClientLive()))
 }
 
 

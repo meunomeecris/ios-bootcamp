@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		8A6B80C62E2B76720038BD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A51F45F2E268ADE00B7E71A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A51F4662E268ADE00B7E71A;
+			remoteInfo = iosBootcamp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		8A51F4672E268ADE00B7E71A /* iosBootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosBootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosBootcampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = iosBootcamp;
 			sourceTree = "<group>";
 		};
+		8A6B80C32E2B76720038BD6E /* iosBootcampTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = iosBootcampTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8A51F4642E268ADE00B7E71A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A6B80BF2E2B76720038BD6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				8A51F4692E268ADE00B7E71A /* iosBootcamp */,
+				8A6B80C32E2B76720038BD6E /* iosBootcampTests */,
 				8A51F4682E268ADE00B7E71A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				8A51F4672E268ADE00B7E71A /* iosBootcamp.app */,
+				8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = 8A51F4672E268ADE00B7E71A /* iosBootcamp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8A6B80C12E2B76720038BD6E /* iosBootcampTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A6B80CA2E2B76720038BD6E /* Build configuration list for PBXNativeTarget "iosBootcampTests" */;
+			buildPhases = (
+				8A6B80BE2E2B76720038BD6E /* Sources */,
+				8A6B80BF2E2B76720038BD6E /* Frameworks */,
+				8A6B80C02E2B76720038BD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A6B80C72E2B76720038BD6E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8A6B80C32E2B76720038BD6E /* iosBootcampTests */,
+			);
+			name = iosBootcampTests;
+			packageProductDependencies = (
+			);
+			productName = iosBootcampTests;
+			productReference = 8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					8A51F4662E268ADE00B7E71A = {
 						CreatedOnToolsVersion = 16.4;
+					};
+					8A6B80C12E2B76720038BD6E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 8A51F4662E268ADE00B7E71A;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				8A51F4662E268ADE00B7E71A /* iosBootcamp */,
+				8A6B80C12E2B76720038BD6E /* iosBootcampTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A51F4652E268ADE00B7E71A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A6B80C02E2B76720038BD6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A6B80BE2E2B76720038BD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A6B80C72E2B76720038BD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A51F4662E268ADE00B7E71A /* iosBootcamp */;
+			targetProxy = 8A6B80C62E2B76720038BD6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8A51F4702E268AE000B7E71A /* Debug */ = {
@@ -304,6 +379,42 @@
 			};
 			name = Release;
 		};
+		8A6B80C82E2B76720038BD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7T93UNM5FF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cm.iosBootcampTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosBootcamp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iosBootcamp";
+			};
+			name = Debug;
+		};
+		8A6B80C92E2B76720038BD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7T93UNM5FF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cm.iosBootcampTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosBootcamp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iosBootcamp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -321,6 +432,15 @@
 			buildConfigurations = (
 				8A51F4732E268AE000B7E71A /* Debug */,
 				8A51F4742E268AE000B7E71A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A6B80CA2E2B76720038BD6E /* Build configuration list for PBXNativeTarget "iosBootcampTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A6B80C82E2B76720038BD6E /* Debug */,
+				8A6B80C92E2B76720038BD6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

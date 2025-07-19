@@ -34,7 +34,7 @@ struct ProductView: View {
 
 
 #Preview {
-    ProductView(store: ProductStore())
+    ProductView(store: ProductStore(productClient: ProductClientMock()))
 }
 
 

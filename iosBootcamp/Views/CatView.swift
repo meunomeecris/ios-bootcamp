@@ -33,7 +33,7 @@ struct CatView: View {
 }
 
 #Preview {
-    CatView(store: CatStore())
+    CatView(store: CatStore(catClient: CatClientLive()))
 }
 
 

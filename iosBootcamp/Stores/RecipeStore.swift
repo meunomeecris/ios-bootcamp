@@ -2,7 +2,11 @@ import Foundation
 
 @MainActor
 @Observable final class RecipeStore {
-    private let clientRecipe = RecipeClientLive()
+    private let recipeClient: RecipeClient
+    
+    init(recipeClient: RecipeClient) {
+        self.recipeClient = recipeClient
+    }
     
     var categoriesData: [Category] = []
     var mealsData: [Meal] = []
@@ -12,7 +16,7 @@ import Foundation
     
     func loadCategories() async {
         do {
-            let result = try await clientRecipe.getCategories()
+            let result = try await recipeClient.getCategories()
             categoriesData = result.categories
             selectedCategory = categoriesData.first
         } catch {
@@ -20,20 +24,20 @@ import Foundation
         }
     }
     
-    func searchMealByCategory() {
-        Task {
-            await loadMeals()
-        }
-    }
-    
     func loadMeals() async {
         guard let category = selectedCategory else { return }
         
         do {
-            let meals = try await clientRecipe.getMeals(for: category.strCategory)
+            let meals = try await recipeClient.getMeals(for: category.strCategory)
             mealsData = meals.meals
         } catch {
             erroMessage = "Fail to load meals \(error.localizedDescription)"
+        }
+    }
+    
+    func searchMealByCategory() {
+        Task {
+            await loadMeals()
         }
     }
 }

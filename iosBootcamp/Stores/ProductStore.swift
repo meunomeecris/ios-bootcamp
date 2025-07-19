@@ -2,7 +2,11 @@ import Foundation
 
 @MainActor
 @Observable final class ProductStore {
-    private let productClient = ProductClientMock()
+    private let productClient: ProductClient
+    
+    init(productClient: ProductClient) {
+        self.productClient = productClient
+    }
     
     var products: [Product] = []
     var isLoading = false
@@ -10,14 +14,14 @@ import Foundation
 
     func fecthProducts() async {
         isLoading = true
-        errorMessage = nil
         
         do {
-            products = try await productClient.getProducts()
+            products = try await productClient.fetchProducts()
         } catch {
             debugPrint(error)
             errorMessage = "Product loading failed \(error.localizedDescription)"
         }
+        
         isLoading = false
     }
 }

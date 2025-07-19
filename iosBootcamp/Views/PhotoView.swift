@@ -22,7 +22,7 @@ struct PhotoView: View {
 }
 
 #Preview {
-    PhotoView(store: PhotoStore())
+    PhotoView(store: PhotoStore(photoClient: PhotoClientMock()))
 }
 
 struct GaleryPhoto: View {

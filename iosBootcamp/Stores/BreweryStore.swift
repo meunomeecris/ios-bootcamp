@@ -2,7 +2,11 @@ import Foundation
 
 @MainActor
 @Observable final class BreweryStore {
-    private var breweryClient = BreweryClientLive()
+    private let breweryClient: BreweryClient
+    
+    init(breweryClient: BreweryClient) {
+        self.breweryClient = breweryClient
+    }
     
     var breweries: [Brewery] = []
     var isLoding: Bool = false

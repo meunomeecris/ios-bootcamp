@@ -1,9 +1,8 @@
 import Foundation
 
-class BreweryClientLive {
+class BreweryClientLive: BreweryClient {
     
     func getBreweries() async throws -> [Brewery] {
-        
         //URLRequest
         let api = "https://api.openbrewerydb.org/v1/breweries"
         let country = "france"
@@ -14,8 +13,7 @@ class BreweryClientLive {
         }
         print(url)
         let urlRequest = URLRequest(url: url)
-        
-        
+         
         //Call the Resquest
         
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
@@ -32,3 +30,16 @@ class BreweryClientLive {
         return breweryData
     }
 }
+
+final class BreweryClientSucess: BreweryClient {
+    func getBreweries() async throws -> [Brewery] {
+        return [Brewery(id: "13", name: "3 Brasseurs", address: "56 Av. du 8 Mai 1945, 38130 ", city: "Échirolles", stateProvince: "Isére'", phone: "04 76 29 17 53", website: "3brasseurs.com")]
+    }
+}
+
+final class BreweryClientFailed: BreweryClient {
+    func getBreweries() async throws -> [Brewery] {
+        throw URLError(.badURL)
+    }
+}
+

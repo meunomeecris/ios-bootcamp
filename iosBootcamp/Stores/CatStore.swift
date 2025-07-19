@@ -2,7 +2,11 @@ import Foundation
 
 @MainActor
 @Observable final class CatStore {
-    private var catClient = CatClientLive()
+    private var catClient: CatClient
+    
+    init(catClient: CatClient) {
+        self.catClient = catClient
+    }
     
     var cats: [Cat] = []
     var isLoading = false
