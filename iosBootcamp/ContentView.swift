@@ -7,7 +7,8 @@ struct ContentView: View {
 //        BreweryView(store: BreweryStore())
 //        RecipeView(store: RecipeStore())
 //        LocationView(store: LocationStore())
-        ProductView(store: ProductStore(productClient: ProductClientMock()))
+//        ProductView(store: ProductStore(productClient: ProductClientMock()))
+        AlertView(store: AlertStore())
     }
 }
 
