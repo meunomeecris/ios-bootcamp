@@ -21,7 +21,8 @@ import SwiftUI
     }
     
     private func playSound() {
-        AudioServicesPlaySystemSound(1007)
+
+        AudioServicesPlaySystemSound(1003)
     }
     
 }

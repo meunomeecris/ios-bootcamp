@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct PhotoView: View {
     let store: PhotoStore
@@ -25,7 +26,7 @@ struct PhotoView: View {
     PhotoView(store: PhotoStore(photoClient: PhotoClientMock()))
 }
 
-struct GaleryPhoto: View {
+private struct GaleryPhoto: View {
     let store: PhotoStore
     let columns = [GridItem(.adaptive(minimum: 100)), GridItem(.adaptive(minimum: 100))]
     @Bindable var bStore: PhotoStore
@@ -48,7 +49,7 @@ struct GaleryPhoto: View {
     }
 }
 
-struct InfoSheet: View {
+private struct InfoSheet: View {
     let title: String
     let author: String
     let date: String
@@ -67,7 +68,7 @@ struct InfoSheet: View {
     }
 }
 
-struct PhotoCard: View {
+private struct PhotoCard: View {
     let image_url: String
     let action: () -> Void
     
@@ -75,19 +76,8 @@ struct PhotoCard: View {
         ZStack(alignment: .bottomTrailing) {
             
             VStack {
-                AsyncImage(url: URL(string: image_url)) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                    Text("Photos not available")
-                        .font(.callout)
-                        .bold()
-                }
+                CardImage(url: URL(string: image_url), placeholderText: "Photos not available")
             }
-            .clipShape(RoundedRectangle(cornerRadius: 25))
-            
             
             Button {
                 action()

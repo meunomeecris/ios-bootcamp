@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8ADA9AFA2E2E48D700A624BA /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8ADA9AF92E2E48D700A624BA /* UIComponents */; };
+		8ADA9B142E2E4F5600A624BA /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8ADA9B132E2E4F5600A624BA /* UIComponents */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8A6B80C62E2B76720038BD6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -19,6 +24,7 @@
 /* Begin PBXFileReference section */
 		8A51F4672E268ADE00B7E71A /* iosBootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosBootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosBootcampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADA9B122E2E4ED700A624BA /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIComponents; path = ../UIComponents; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ADA9B142E2E4F5600A624BA /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ADA9AFA2E2E48D700A624BA /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +65,8 @@
 			children = (
 				8A51F4692E268ADE00B7E71A /* iosBootcamp */,
 				8A6B80C32E2B76720038BD6E /* iosBootcampTests */,
+				8ADA9B122E2E4ED700A624BA /* UIComponents */,
+				8ADA9AF82E2E48D700A624BA /* Frameworks */,
 				8A51F4682E268ADE00B7E71A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +78,13 @@
 				8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8ADA9AF82E2E48D700A624BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +107,7 @@
 			);
 			name = iosBootcamp;
 			packageProductDependencies = (
+				8ADA9B132E2E4F5600A624BA /* UIComponents */,
 			);
 			productName = SwiftPratice;
 			productReference = 8A51F4672E268ADE00B7E71A /* iosBootcamp.app */;
@@ -113,6 +131,7 @@
 			);
 			name = iosBootcampTests;
 			packageProductDependencies = (
+				8ADA9AF92E2E48D700A624BA /* UIComponents */,
 			);
 			productName = iosBootcampTests;
 			productReference = 8A6B80C22E2B76720038BD6E /* iosBootcampTests.xctest */;
@@ -146,6 +165,8 @@
 			);
 			mainGroup = 8A51F45E2E268ADE00B7E71A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8A51F4682E268ADE00B7E71A /* Products */;
 			projectDirPath = "";
@@ -446,6 +467,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8ADA9AF92E2E48D700A624BA /* UIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIComponents;
+		};
+		8ADA9B132E2E4F5600A624BA /* UIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIComponents;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A51F45F2E268ADE00B7E71A /* Project object */;
 }

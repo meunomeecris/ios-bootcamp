@@ -1,5 +1,5 @@
 import SwiftUI
-
+import UIComponents
 
 struct AlertView: View {
     let store: AlertStore
@@ -41,27 +41,4 @@ struct AlertView: View {
 
 #Preview {
     AlertView(store: AlertStore())
-}
-
-private struct ButtonAlert: View {
-    let name: String
-    let color: Color
-    let bgColor: Color
-    let action: ()->Void
-    var body: some View {
-        Button(name, systemImage: "bell.fill") {
-            action()
-        }
-        .font(.body)
-        .textCase(.uppercase)
-        .bold()
-        .foregroundStyle(color)
-        .padding(16)
-        .frame(width: 200)
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .fill(bgColor)
-                .shadow(color: bgColor.opacity(0.3), radius:1, x:10, y:10)
-        )
-    }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct CatView: View {
     let store: CatStore
@@ -19,7 +20,7 @@ struct CatView: View {
                 } else {
                     LazyVGrid(columns: columns) {
                         ForEach(store.cats) { cat in
-                            CatCard(url: cat.imageURL)
+                            CardImage(url: cat.imageURL, placeholderText: "Photos not available")
                         }
                     }
                     .padding(.horizontal, 16)
@@ -34,27 +35,4 @@ struct CatView: View {
 
 #Preview {
     CatView(store: CatStore(catClient: CatClientLive()))
-}
-
-
-struct CatCard: View {
-    let url: URL?
-    
-    var body: some View {
-        VStack {
-            if let url = url {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                    Text("Photos not available")
-                        .font(.callout)
-                        .bold()
-                }
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 25))
-    }
 }

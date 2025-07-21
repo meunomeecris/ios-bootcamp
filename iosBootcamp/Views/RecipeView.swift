@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct RecipeView: View {
     var store: RecipeStore
@@ -87,18 +88,10 @@ struct MealCard: View {
                 .padding(.top, 16)
             
             if let url = url {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                    Text("Photos not available")
-                        .font(.callout)
-                        .bold()
-                }
+                CardImage(url: url, placeholderText: "Photos not available")
             }
         }
+        .padding()
         .background(.yellow)
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .frame(width: 300, height: 300)

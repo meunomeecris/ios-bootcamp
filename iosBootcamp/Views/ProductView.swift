@@ -38,7 +38,7 @@ struct ProductView: View {
 }
 
 
-struct ProductCard: View {
+private struct ProductCard: View {
     let name: String
     let price: Double
     
