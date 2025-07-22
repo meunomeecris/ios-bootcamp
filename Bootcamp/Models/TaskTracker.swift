@@ -6,3 +6,11 @@ struct TaskTracker: Identifiable, Equatable {
     var date: Date
     var isCompleted: Bool
 }
+
+
+enum TaskFilter: String, CaseIterable {
+    case all = "All"
+    case completed = "Completed"
+    case pending = "Pending"
+    case today = "Today"
+}

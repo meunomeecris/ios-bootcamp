@@ -8,8 +8,8 @@ struct Root: View {
         //        RecipeView(store: RecipeStore())
         //        LocationView(store: LocationStore())
         //        ProductView(store: ProductStore(productClient: ProductClientMock()))
-        AlertView(store: AlertStore())
-//        TaskView(store: TaskStore())
+//        AlertView(store: AlertStore())
+        TaskView(store: TaskStore())
     }
 }
 

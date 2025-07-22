@@ -2,7 +2,7 @@ import SwiftUI
 import UIComponents
 
 struct TaskView: View {
-    @Bindable  var store: TaskStore
+    @Bindable var store: TaskStore
 
     var body: some View {
         NavigationStack {
@@ -19,15 +19,13 @@ struct TaskView: View {
                         }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
-                        if store.isFilterTaskActive {
-                            Button("Close") {
-                                store.isFilterTaskActive = false
-                            }
-                        } else {
-                            Button("Filter") {
-                                store.isFilterTaskActive = true
-                                store.filterTasksBy()
-                            }
+                        Button("Filter") {
+                            store.isFilterTaskActive = true
+                        }
+                        .sheet(isPresented: $store.isFilterTaskActive) {
+                            TaskFilterView(store: store)
+                                .presentationDetents([.fraction(0.2)])
+                                .presentationDragIndicator(.visible)
                         }
                     }
                 }
@@ -72,21 +70,21 @@ private struct ListTaskView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-                if store.userTasks.isEmpty {
+                if store.filteredTasks.isEmpty {
                     Text("No tasks yet!")
                         .font(.title2)
                         .foregroundStyle(.black)
                         .opacity(0.6)
                 } else {
-                    ForEach(store.isFilterTaskActive ? store.filteredTask : store.userTasks) { task in
+                    ForEach(store.filteredTasks) { task in
                         VStack {
                             TaskRow(text: task.title, isCompleted: task.isCompleted) {
                                 store.completeTask(task)
                             }
                         }
-                        .alert("Congrats!", isPresented: $store.isTaskCompleted) {
+                        .alert("Congrats!", isPresented: $store.showAlertTaskCompleted) {
                             Button("Thanks") {
-                                store.isTaskCompleted = false
+                                store.showAlertTaskCompleted = false
                             }
                         } message: {
                             Text("You completed a task! Let's celebrate!")

@@ -1,4 +1,5 @@
 import Testing
+import Foundation
 @testable import Bootcamp
 
 struct BootcampTests {
@@ -169,6 +170,57 @@ struct BootcampTests {
             store.dismissButtonAlert()
             #expect(store.showingAlert == false)
             #expect(store.selectedAlert == nil)
+        }
+    }
+    
+    @Suite("Tasks Tracker Store")
+    struct TasksTrackerStoreTests {
+        let store = TaskStore()
+        
+        @Test func filteredTasksSuccess()  {
+            store.userTasks = [
+                    TaskTracker(title: "A", date: Date(), isCompleted: false),
+                    TaskTracker(title: "B", date: Date(), isCompleted: true),
+                    TaskTracker(title: "C", date: Date(), isCompleted: false)
+                ]
+
+                store.currentFilter = .all
+                #expect(store.filteredTasks.count == 3)
+
+                store.currentFilter = .completed
+                #expect(store.filteredTasks.count == 1)
+
+                store.currentFilter = .pending
+                #expect(store.filteredTasks.count == 2)
+
+                store.currentFilter = .today
+                #expect(store.filteredTasks.count == 3)
+        }
+        
+        @Test func addTaskSuccess() async throws {
+            store.addTask()
+            let count = store.userTasks.count
+            #expect(count < (count + 1))
+            #expect(store.titleTaskInput.isEmpty)
+        }
+        
+        @Test func completedTaskSucess() {
+            store.userTasks = [
+                TaskTracker(title: "A", date: Date(), isCompleted: false),
+                TaskTracker(title: "B", date: Date(), isCompleted: true)
+            ]
+            store.completeTask(store.userTasks[0])
+            #expect(store.userTasks[0].isCompleted == true)
+            #expect(store.showAlertTaskCompleted == true)
+        }
+        
+        @Test func removeAllSuccess() async throws {
+            store.userTasks = [
+                TaskTracker(title: "A", date: Date(), isCompleted: false),
+                TaskTracker(title: "B", date: Date(), isCompleted: true)
+            ]
+            store.removeAllTasks()
+            #expect(store.userTasks.isEmpty)
         }
     }
 }
