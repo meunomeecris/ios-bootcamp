@@ -1,5 +1,3 @@
-[![SwiftLint](https://img.shields.io/badge/style-SwiftLint-blue.svg)](https://realm.github.io/SwiftLint/)
-
 # iOS Bootcamp
 
 This repository contains all exercises developed during my 6-month self-guided iOS Developer bootcamp (Jul–Dec 2025)
