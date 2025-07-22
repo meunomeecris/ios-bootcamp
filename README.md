@@ -1,5 +1,6 @@
-#iOS Bootcamp
 [![SwiftLint](https://img.shields.io/badge/style-SwiftLint-blue.svg)](https://realm.github.io/SwiftLint/)
+
+# iOS Bootcamp
 
 This repository contains all exercises developed during my 6-month self-guided iOS Developer bootcamp (Jul–Dec 2025)
 
@@ -15,8 +16,6 @@ I designed this program to go beyond tutorials and build real apps focused on:
 - Clean, professional code
 
 
-## 📚 Courses Followed
-[Notion](https://www.notion.so/meunomeecris/22e1a82330ef8080b02dc96a0663dcb5?v=22e1a82330ef81da97cf000c725a595b&source=copy_link)
 
 
 ## 💼 Contact
