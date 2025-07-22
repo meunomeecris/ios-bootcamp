@@ -9,7 +9,8 @@ struct Root: View {
         //        LocationView(store: LocationStore())
         //        ProductView(store: ProductStore(productClient: ProductClientMock()))
 //        AlertView(store: AlertStore())
-        TaskView(store: TaskStore())
+//        TaskView(store: TaskStore())
+        PetBookView(store: PetBookStore(petClient: PetClientMock()))
     }
 }
 

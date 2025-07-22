@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Mosquito",
+    "type": "cat",
+    "image": "https://cdn-useast1.kapwing.com/static/templates/crying-cat-meme-template-full-719a53dc.webp",
+    "age": 3,
+    "description": "Une chatte qu'aime jouer cache-cache.",
+    "isFavorite": false
+  },
+  {
+    "name": "Yuki",
+    "type": "cat",
+    "image": "https://www.worldsbestcatlitter.com/wp-content/uploads/2019/12/02_coughing-cat-meme.jpg",
+    "age": 2,
+    "description": "Une chatte curieuse qui grimpe partout.",
+    "isFavorite": true
+  },
+  {
+    "name": "Max",
+    "type": "dog",
+    "image": "https://printler.com/media/photo/176171-1.jpg",
+    "age": 5,
+    "description": "Un chien très tranquille.",
+    "isFavorite": false
+  },
+  {
+    "name": "Toutou",
+    "type": "cat",
+    "image": "https://i.ytimg.com/vi/rvX8cS-v2XM/maxresdefault.jpg",
+    "age": 1,
+    "description": "Elle aime dormir toute la journée.",
+    "isFavorite": false
+  },
+  {
+    "name": "Louro",
+    "type": "bird",
+    "image": "https://pbs.twimg.com/media/EQcdaBzWkAAsa84.jpg",
+    "age": 4,
+    "description": "Un perroquet brésilien qui chante de bailão.",
+    "isFavorite": true
+  }
+]
