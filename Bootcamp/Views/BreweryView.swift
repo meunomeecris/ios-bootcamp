@@ -56,7 +56,7 @@ private struct BreweryListView: View {
                 
                 Divider()
             }
-            .foregroundStyle(.black)
+            .foregroundStyle(.indigo)
             .font(.title2)
             .padding()
         }

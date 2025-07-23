@@ -10,15 +10,12 @@ struct AlertView: View {
             Color.black
                 .ignoresSafeArea()
             VStack(spacing: 32) {
-                Text("Alerts")
-                    .font(.largeTitle)
-                    .bold()
+                TitleViewComponent(title: "Alerts")
                     .foregroundStyle(.white)
-
                 Spacer()
 
                 ForEach(store.alertsData) { alert in
-                    ButtonAlert(
+                    ButtonAlertComponent(
                         name: alert.name,
                         color: alert.fontColor,
                         bgColor: alert.backgroundColor) {

@@ -7,22 +7,19 @@ struct GaleryPhotosView: View {
     
     var body: some View {
         ScrollView {
-            Text("Paris")
-                .font(.largeTitle)
-                .bold()
+            TitleViewComponent(title: "Paris")
             VStack {
                 if store.isLoading {
-                    ProgressView("Loading Paris Photos...")
+                    ProgressViewComponent(text: "Loading Paris Photos...")
                 } else if let error = store.errorMessage {
-                    Text(error)
+                    MessageErrorComponent(error: error)
                 } else {
                     GridPhotos(store: store)
-                    Spacer()
                 }
             }
-            .task {
-                await store.loadPhotos()
-            }
+        }
+        .task {
+            await store.loadPhotos()
         }
     }
 }
@@ -39,7 +36,7 @@ private struct GridPhotos: View {
             Button {
                 store.infosButtonTapped(for: photo)
             } label: {
-                CardImage(
+                CardImageComponent(
                     url: URL(string: photo.imageURL),
                     placeholderText: "Photos not available"
                 )
@@ -55,28 +52,5 @@ private struct GridPhotos: View {
                     date: selected.date)
                 .presentationDetents([.fraction(0.2)])
             }
-    }
-}
-
-private struct PhotoDetails: View {
-    let title: String
-    let author: String
-    let date: String
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.title)
-                    .bold()
-                Text("Author: \(author)")
-                    .font(.callout)
-                Text("Author: \(date)")
-                    .font(.callout)
-            }
-            .padding(16)
-            
-            Spacer()
-        }
     }
 }

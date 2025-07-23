@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A335FB62E3145FD00C9CAEE /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 8A335FB52E3145FD00C9CAEE /* WaterfallGrid */; };
-		8A3B1F7F2E2FB08A00CCBBA2 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8ADA9B132E2E4F5600A624BA /* UIComponents */; };
+		8A335FC12E316AAF00C9CAEE /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8A335FC02E316AAF00C9CAEE /* UIComponents */; };
 		8ADA9AFA2E2E48D700A624BA /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8ADA9AF92E2E48D700A624BA /* UIComponents */; };
-		8ADA9B852E2E56BF00A624BA /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 8ADA9B842E2E56BF00A624BA /* UIComponents */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +23,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A335FBF2E3169EC00C9CAEE /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIComponents; path = ../UIComponents; sourceTree = SOURCE_ROOT; };
 		8A51F4672E268ADE00B7E71A /* Bootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6B80C22E2B76720038BD6E /* BootcampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -46,9 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A335FC12E316AAF00C9CAEE /* UIComponents in Frameworks */,
 				8A335FB62E3145FD00C9CAEE /* WaterfallGrid in Frameworks */,
-				8A3B1F7F2E2FB08A00CCBBA2 /* UIComponents in Frameworks */,
-				8ADA9B852E2E56BF00A624BA /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +84,7 @@
 		8ADA9AF82E2E48D700A624BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A335FBF2E3169EC00C9CAEE /* UIComponents */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,9 +110,8 @@
 			);
 			name = Bootcamp;
 			packageProductDependencies = (
-				8ADA9B132E2E4F5600A624BA /* UIComponents */,
-				8ADA9B842E2E56BF00A624BA /* UIComponents */,
 				8A335FB52E3145FD00C9CAEE /* WaterfallGrid */,
+				8A335FC02E316AAF00C9CAEE /* UIComponents */,
 			);
 			productName = SwiftPratice;
 			productReference = 8A51F4672E268ADE00B7E71A /* Bootcamp.app */;
@@ -171,7 +170,6 @@
 			mainGroup = 8A51F45E2E268ADE00B7E71A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				8ADA9B832E2E56BF00A624BA /* XCLocalSwiftPackageReference "../UIComponents" */,
 				8A335FB42E3145FD00C9CAEE /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -496,13 +494,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		8ADA9B832E2E56BF00A624BA /* XCLocalSwiftPackageReference "../UIComponents" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../UIComponents;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		8A335FB42E3145FD00C9CAEE /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -520,15 +511,11 @@
 			package = 8A335FB42E3145FD00C9CAEE /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
 			productName = WaterfallGrid;
 		};
+		8A335FC02E316AAF00C9CAEE /* UIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIComponents;
+		};
 		8ADA9AF92E2E48D700A624BA /* UIComponents */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UIComponents;
-		};
-		8ADA9B132E2E4F5600A624BA /* UIComponents */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UIComponents;
-		};
-		8ADA9B842E2E56BF00A624BA /* UIComponents */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIComponents;
 		};

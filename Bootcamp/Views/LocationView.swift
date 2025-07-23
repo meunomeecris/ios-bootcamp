@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct LocationView: View {
     let store: LocationStore
@@ -8,10 +9,9 @@ struct LocationView: View {
                 Text("Latitude: \(location.latitude), Longitude: \(location.longitude)")
                     .font(.title2)
             } else if let error = store.errorMessage {
-                Text("Erro: \(error)")
-                    .foregroundColor(.red)
+                MessageErrorComponent(error: error)
             } else {
-                Text("Buscando localização...")
+                ProgressViewComponent(text: "Loading location...")
             }
         }
         .onAppear {

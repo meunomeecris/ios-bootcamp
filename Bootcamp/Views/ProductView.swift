@@ -1,14 +1,12 @@
 import SwiftUI
+import UIComponents
 
 struct ProductView: View {
     let store: ProductStore
-
+    
     var body: some View {
-        VStack(spacing: 32) {
-            Text("Products")
-                .font(.largeTitle)
-                .bold()
-                .foregroundStyle(.green)
+        VStack(spacing: 24) {
+            TitleViewComponent(title: "Products")
             List {
                 if !store.products.isEmpty {
                     ForEach(store.products) { product in
@@ -23,15 +21,12 @@ struct ProductView: View {
                 }
             }
             .listStyle(.plain)
-            .onAppear {
-                Task {
-                    await store.fecthProducts()
-                }
-            }
+        }
+        .task {
+            await store.fecthProducts()
         }
     }
 }
-
 
 #Preview {
     ProductView(store: ProductStore(productClient: ProductClientMock()))
@@ -41,11 +36,11 @@ struct ProductView: View {
 private struct ProductCard: View {
     let name: String
     let price: Double
-
+    
     var body: some View {
         HStack {
             Text(name)
-                .font(.title)
+                .font(.title2)
                 .bold()
             Spacer()
             Text(String(price.formatted(.currency(code: "EUR"))))

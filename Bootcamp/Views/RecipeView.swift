@@ -7,10 +7,7 @@ struct RecipeView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20 ) {
-                Text("Recipe")
-                    .font(.largeTitle)
-                    .bold()
-                Divider()
+                TitleViewComponent(title: "Recipe")
 
                 CategoryPicker(store: store)
                 if let selected = store.selectedCategory {
@@ -18,11 +15,14 @@ struct RecipeView: View {
                         .font(.callout)
                         .lineSpacing(5)
                 }
+                
                 Divider()
-
                 Spacer()
 
-                Button("Search Meals", systemImage: "magnifyingglass") {
+                Button(
+                    "Search Meals",
+                    systemImage: "magnifyingglass"
+                ) {
                     store.searchMealByCategory()
                 }
 
@@ -47,7 +47,7 @@ struct RecipeView: View {
 }
 
 
-struct CategoryPicker: View {
+private struct CategoryPicker: View {
     let store: RecipeStore
 
     var body: some View {
@@ -76,7 +76,7 @@ struct CategoryPicker: View {
 }
 
 
-struct MealCard: View {
+private struct MealCard: View {
     let name: String
     let url: URL?
 
@@ -85,15 +85,16 @@ struct MealCard: View {
             Text(name)
                 .font(.title2)
                 .bold()
-                .padding(.top, 16)
 
             if let url = url {
-                CardImage(url: url, placeholderText: "Photos not available")
+                CardImageComponent(
+                    url: url,
+                    placeholderText: "Photos not available"
+                )
             }
         }
         .padding()
-        .background(.yellow)
+        .background(.yellow.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 25))
-        .frame(width: 300, height: 300)
     }
 }
