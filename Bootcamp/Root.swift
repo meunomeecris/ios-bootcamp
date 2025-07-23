@@ -6,7 +6,7 @@ struct Root: View {
             List {
                 Group {
                     NavigationLink("Load Random Photos") {
-                        PhotoView(store: PhotoStore(photoClient: PhotoClientMock()))
+                        GaleryPhotosView(store: GaleryPhotosStore(galeryPhotosClient: GaleryPhotosMock()))
                     }
                     NavigationLink("Load Cats Photos") {
                         CatView(store: CatStore(catClient: CatClientLive()))

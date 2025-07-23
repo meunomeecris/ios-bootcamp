@@ -1,10 +1,10 @@
 import Foundation
 
-final class PhotoClientMock: PhotoClient {
+final class GaleryPhotosMock: GaleryPhotosClient {
     func fetchPhotos() async throws -> [Photo] {
         try await Task.sleep(nanoseconds: 1_000_000_000)
 
-        guard let url = Bundle.main.url(forResource: "photosData", withExtension: "json"),
+        guard let url = Bundle.main.url(forResource: "parisPhotosMock", withExtension: "json"),
         let data = try? Data(contentsOf: url)
         else {
             throw URLError(.fileDoesNotExist)
@@ -14,7 +14,7 @@ final class PhotoClientMock: PhotoClient {
     }
 }
 
-final class PhotoClientSucess: PhotoClient {
+final class GaleryPhotosSuccess: GaleryPhotosClient {
     func fetchPhotos() async throws -> [Photo] {
         return [
             Photo(
@@ -28,7 +28,7 @@ final class PhotoClientSucess: PhotoClient {
     }
 }
 
-final class PhotoClientFailed: PhotoClient {
+final class GaleryPhotosFailed: GaleryPhotosClient {
     func fetchPhotos() async throws -> [Photo] {
         throw URLError(.badURL)
     }

@@ -2,11 +2,11 @@ import Foundation
 
 @MainActor
 @Observable
-final class PhotoStore {
-    private let photosClient: PhotoClient
+final class GaleryPhotosStore {
+    private let galeryPhotosClient: GaleryPhotosClient
 
-    init(photoClient: PhotoClient) {
-        self.photosClient = photoClient
+    init(galeryPhotosClient: GaleryPhotosClient) {
+        self.galeryPhotosClient = galeryPhotosClient
     }
 
     var photos: [Photo] = []
@@ -18,7 +18,7 @@ final class PhotoStore {
         isLoading = true
 
         do {
-            photos = try await photosClient.fetchPhotos()
+            photos = try await galeryPhotosClient.fetchPhotos()
         } catch {
             errorMessage = "Failed to load photos: \(error.localizedDescription)"
         }

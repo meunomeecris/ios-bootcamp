@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "title": "Sunset in Paris",
+        "image_url": "https://i0.wp.com/www.theglitteringunknown.com/wp-content/uploads/2017/01/Sunset-Terasse-du-Printemps-The-Glittering-Unknown.jpg",
+        "author": "Catherine",
+        "date": "2013-07-01"
+    },
+    {
+        "id": "2",
+        "title": "Eiffel Tower Morning",
+        "image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b9/b7/51/caption.jpg?w=1200&h=-1&s=1",
+        "author": "Marco",
+        "date": "2022-06-28"
+    },
+    {
+        "id": "3",
+        "title": "Arc de triomphe",
+        "image_url": "https://thumbs.dreamstime.com/b/café-avec-du-charme-montmartre-sur-la-colline-de-paris-france-99897244.jpg",
+        "author": "Louise",
+        "date": "2025-07-10"
+    },
+    {
+        "id": "4",
+        "title": "Cafe in Montmartre",
+        "image_url": "https://pullman.accor.com/destinations/city/paris-1400x788-3.jpg",
+        "author": "Jean Claude",
+        "date": "2015-07-10"
+    },
+    {
+        "id": "5",
+        "title": "Rainy Day at the Louvre",
+        "image_url": "https://cdn.pariscityvision.com/library/image/5189.jpg",
+        "author": "Isabelle",
+        "date": "2018-11-03"
+    },
+    {
+        "id": "6",
+        "title": "Seine River Stroll",
+        "image_url": "https://parisjetaime.com/data/layout_image/6023_Pont-Alexandre-III-nuit-l-630x405-l-©-Leonard-Cotte-DR-via-Unsplash.jpg",
+        "author": "Théo",
+        "date": "2020-05-22"
+    },
+    {
+        "id": "7",
+        "title": "Notre-Dame at Dusk",
+        "image_url": "https://media.istockphoto.com/id/1674959033/photo/notre-dame-de-paris-cathedral-in-paris-france.jpg?s=612x612&w=0&k=20&c=QKdrl-HKBdGa3HFAXKDNQDVIl1qZuG_jZz44FxEy_I0=",
+        "author": "Amélie",
+        "date": "2019-09-17"
+    },
+    {
+        "id": "8",
+        "title": "Street Artist at Place du Tertre",
+        "image_url": "https://thecreativeadventurer.com/wp-content/uploads/2023/03/IMG_6991-768x1024.jpg",
+        "author": "Luc",
+        "date": "2023-03-15"
+    },
+    {
+        "id": "9",
+        "title": "Autumn Leaves in Jardin du Luxembourg",
+        "image_url": "https://landenkerr.com/wp-content/uploads/2020/10/walk-through-jardin-du-luxembourg-fall-pantheon-view.jpeg",
+        "author": "Clara",
+        "date": "2016-10-12"
+    }
+]
+ 

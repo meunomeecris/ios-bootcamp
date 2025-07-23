@@ -107,11 +107,11 @@ struct BootcampTests {
         }
     }
     
-    @Suite("Photo Store")
-    struct PhotoStoreTests {
+    @Suite("Galery Photos Store")
+    struct GaleryPhotosStoreTests {
         @Test
         func loadPhotoSuccess() async {
-            let store = await PhotoStore(photoClient: PhotoClientSucess())
+            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
             
             await store.loadPhotos()
             
@@ -122,7 +122,7 @@ struct BootcampTests {
         
         @Test
         func loadPhotoFailed() async {
-            let store = await PhotoStore(photoClient: PhotoClientFailed())
+            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosFailed())
             
             await store.loadPhotos()
             
@@ -133,7 +133,7 @@ struct BootcampTests {
         
         @Test
         func infosButtonTapped() async throws {
-            let store = await PhotoStore(photoClient: PhotoClientSucess())
+            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
             await store.loadPhotos()
             let unwrappedPhoto = try await #require(store.photos.first)
             
@@ -144,7 +144,7 @@ struct BootcampTests {
         
         @Test
         func didDismiss() async throws {
-            let store = await PhotoStore(photoClient: PhotoClientSucess())
+            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
             await store.loadPhotos()
             let unwrappedPhoto = try await #require(store.photos.first)
             await store.infosButtonTapped(for: unwrappedPhoto)

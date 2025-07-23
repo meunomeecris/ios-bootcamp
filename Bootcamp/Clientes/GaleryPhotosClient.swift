@@ -1,3 +1,3 @@
-protocol PhotoClient {
+protocol GaleryPhotosClient {
     func fetchPhotos() async throws -> [Photo]
 }
