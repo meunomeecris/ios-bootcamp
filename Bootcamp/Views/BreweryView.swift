@@ -2,10 +2,13 @@ import SwiftUI
 
 struct BreweryView: View {
     let store: BreweryStore
-
+    
     var body: some View {
-        Text("Breweries in France")
-            .font(.largeTitle)
+        ScrollView {
+            Text("Breweries in France")
+                .font(.largeTitle)
+                .bold()
+            
             VStack {
                 if store.isLoding {
                     ProgressView()
@@ -17,34 +20,45 @@ struct BreweryView: View {
                         .font(.title3)
                         .bold()
                 } else {
-                    List {
-                        ForEach(store.breweries) { brewery in
-                            VStack(alignment: .leading, spacing: 24) {
-                                Text(brewery.name)
-                                Text(brewery.address)
-                                Text(brewery.stateProvince)
-                                Text(brewery.city)
-                                Text(brewery.phone)
-                                if let url = URL(string: brewery.website) {
-                                    Link("Website", destination: url)
-                                }
-                            }
-                            .font(.title3)
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 20)
-                                .fill(.yellow.opacity(0.07)))
-                        }
-                        .listRowSeparator(.hidden)
-                    }
-                    .listStyle(.plain)
+                    BreweryListView(store: store)
                 }
             }
+        }
         .task {
             await store.loadBreweries()
         }
     }
 }
 
+
 #Preview {
     BreweryView(store: BreweryStore(breweryClient: BreweryClientLive()))
+}
+
+private struct BreweryListView: View {
+    let store: BreweryStore
+    
+    var body: some View {
+        ForEach(store.breweries) { brewery in
+            VStack(alignment: .leading, spacing: 24) {
+                Label(brewery.name, systemImage: "house")
+                Label(brewery.address, systemImage: "road.lanes")
+                Label(brewery.stateProvince, systemImage: "map")
+                Label(brewery.city, systemImage: "mappin.and.ellipse")
+                Label(brewery.phone, systemImage: "phone")
+                
+                if let url = URL(string: brewery.website) {
+                    HStack(spacing: 18) {
+                        Image(systemName: "globe")
+                        Link("Website", destination: url)
+                    }
+                }
+                
+                Divider()
+            }
+            .foregroundStyle(.black)
+            .font(.title2)
+            .padding()
+        }
+    }
 }
