@@ -1,0 +1,38 @@
+import SwiftUI
+import AVFoundation
+
+struct HandleAPIErrorView: View {
+    @Bindable var store = HandleAPIErrorStore()
+    
+    var body: some View {
+        ZStack {
+            Color.black
+                .ignoresSafeArea()
+            Button {
+                store.loadData()
+                AudioServicesPlayAlertSound(1030)
+            } label: {
+                Text("Load")
+            }
+            .font(.title2)
+            .foregroundStyle(.white)
+            .bold()
+            .padding(30)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.blue)
+                    .shadow(color:. yellow, radius: 1, x: 10, y: 10)
+                
+            )
+            .alert("Whoups!", isPresented: $store.showAlert) {
+                Button("I get it!", role: .cancel) {}
+            } message: {
+                Text(store.messageError)
+            }
+        }
+    }
+}
+
+#Preview {
+    HandleAPIErrorView()
+}
