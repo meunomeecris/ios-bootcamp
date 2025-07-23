@@ -12,6 +12,7 @@ final class CatPhotoStore {
     var cats: [CatPhoto] = []
     var isLoading = false
     var errorMessage: String?
+    var selectedCat: CatPhoto? = nil
 
     func loadCats() async {
         isLoading = true
