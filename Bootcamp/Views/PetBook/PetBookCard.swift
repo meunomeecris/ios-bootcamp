@@ -21,6 +21,7 @@ struct PetBookCard: View {
                 Text(name)
                Spacer()
                Text(type.capitalized)
+               Image(systemName: isFavorite ? "heart.fill" : "heart")
             }
            .bold()
            .font(.title2)

@@ -223,4 +223,28 @@ struct BootcampTests {
             #expect(store.userTasks.isEmpty)
         }
     }
+    
+    @Suite("PetBook Tests")
+    struct PetBookStoreTests {
+        @Test func fetchPetSuccess() async throws {
+            let store = await PetBookStore(petClient: PetClientSucess())
+            try await store.fetchPet()
+            await #expect(store.errorMessage == nil)
+            await #expect(!store.pets.isEmpty)
+        }
+        
+        @Test func fetchPetFailed() async throws {
+            let store = await PetBookStore(petClient: PetClientFailed())
+            try await store.fetchPet()
+            await #expect(store.errorMessage != nil)
+            await #expect(store.pets.isEmpty)
+        }
+        
+        @Test func toogleFavoriteSuccess() async throws {
+            let store = await PetBookStore(petClient: PetClientSucess())
+            try await store.fetchPet()
+            await store.toggleFavorite(for: store.pets[0])
+            await #expect(store.pets[0].isFavorite == false)
+        }
+    }
 }

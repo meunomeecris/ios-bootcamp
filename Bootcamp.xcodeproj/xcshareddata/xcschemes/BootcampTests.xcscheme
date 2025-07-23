@@ -54,15 +54,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A51F4662E268ADE00B7E71A"
-            BuildableName = "Bootcamp.app"
-            BlueprintName = "Bootcamp"
-            ReferencedContainer = "container:Bootcamp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

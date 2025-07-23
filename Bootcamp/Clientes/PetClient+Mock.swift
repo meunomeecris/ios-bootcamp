@@ -18,3 +18,25 @@ final class PetClientMock: PetClient {
         return try JSONDecoder().decode([Pet].self, from: data)
     }
 }
+
+
+final class PetClientSucess: PetClient {
+    func fetchPet() async throws -> [Pet] {
+        return [
+            Pet(
+                name: "Mosquito",
+                type: "cat" ,
+                image: "https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe8b6f41cf0.jpg",
+                age: 1,
+                description: "The Wild Cat", isFavorite: true
+            ),
+        ]
+    }
+}
+
+
+final class PetClientFailed: PetClient {
+    func fetchPet() async throws -> [Pet] {
+        throw URLError(.cannotOpenFile)
+    }
+}
