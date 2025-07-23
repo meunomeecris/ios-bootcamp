@@ -1,8 +1,8 @@
-# iOS Bootcamp
+# 🚀 iOS Bootcamp
 
-This repository contains all exercises developed during my 6-month self-guided iOS Developer bootcamp (Jul–Dec 2025)
+This repository contains all the exercises and projects developed during my **6-month self-guided iOS Developer bootcamp (Jul–Dec 2025)**.
 
-I designed this program to go beyond tutorials and build real apps focused on:
+I designed this program to go beyond tutorials and focus on building real apps using production-level techniques:
 
 - SwiftUI
 - Swift Networking
@@ -16,28 +16,38 @@ I designed this program to go beyond tutorials and build real apps focused on:
 
 ## Concepts That I master
 🧠 Programming Fundamentals
-  - Variables and Types
-  -  Control Flow
-  -  Functions
-  -  Structs vs Classe
-  -  Optionals
-  -  Access Control
+  - Variables and Types (let vs var, Optionals, Dictionaries, Arrays…)
+  - Control Flow (if, guard, switch, for, while)
+  - Functions (with parameters, closures, mutating)
+  - Structs vs Classes (value vs reference types)
+  - Access Control (private, public, etc.)
 
 🍏 SwiftUI and iOS
-  - Building Views
-  - View Lifecycle
-  - Modularization and Reuse
-  - Common Techniques
+  - Building Views (@State, @Binding, @Observed Macro, NavigationStack, etc.)
+  - View Lifecycle (onAppear, onDisappear)
+  - Modularization and Reuse (custom init, small reusable components)
+  - Common UI Techniques (forms, lists, alerts, loading states)
 
-⚙️ 3. Concurrency and Basic Architecture
+⚙️ Concurrency and Basic Architecture
   - Async/Await
-  - Handling Error
-  - MVVM
-  - Common Mistakes to Avoid
+  - Task and structured concurrency
+  - MVVM and clean separation of concerns
+  - Avoiding common issues (e.g. force-unwrapping, mixing logic in Views)
 
+🌐 Swift Networking
+  - Fetching data with URLSession + async/await
+  - Decoding JSON using Codable
+  - Proper error handling and user feedback
+  - Building reusable and testable networking layers
+
+🧪 Swift Testing
+  - Writing clean @Test functions with #expect
+  - Testing async code, state changes, and view logic
+  - Mocking dependencies (e.g. fake network clients)
+  - Organizing test suites for clarity and maintenance
 
 ## Contact
 
-Want to talk about junior iOS opportunities or collaboration?  
+Open to junior iOS roles, collaborations, and mentorship.
 Reach me on [LinkedIn](https://www.linkedin.com/in/seu-perfil).
 
