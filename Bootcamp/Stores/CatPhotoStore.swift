@@ -2,14 +2,14 @@ import Foundation
 
 @MainActor
 @Observable
-final class CatStore {
-    private var catClient: CatClient
+final class CatPhotoStore {
+    private var catClient: CatPhotoClient
 
-    init(catClient: CatClient) {
+    init(catClient: CatPhotoClient) {
         self.catClient = catClient
     }
 
-    var cats: [Cat] = []
+    var cats: [CatPhoto] = []
     var isLoading = false
     var errorMessage: String?
 

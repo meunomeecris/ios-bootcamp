@@ -5,11 +5,11 @@ struct Root: View {
         NavigationStack {
             List {
                 Group {
-                    NavigationLink("Load Random Photos") {
+                    NavigationLink("Galery Photos - Paris") {
                         GaleryPhotosView(store: GaleryPhotosStore(galeryPhotosClient: GaleryPhotosMock()))
                     }
-                    NavigationLink("Load Cats Photos") {
-                        CatView(store: CatStore(catClient: CatClientLive()))
+                    NavigationLink("Galery Photos - Cats") {
+                        CatPhotoView(store: CatPhotoStore(catClient: CatPhotoLive()))
                     }
                     NavigationLink("Load Brewery in France") {
                         BreweryView(store: BreweryStore(breweryClient: BreweryClientLive()))

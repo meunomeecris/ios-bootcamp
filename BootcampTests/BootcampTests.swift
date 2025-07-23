@@ -53,11 +53,11 @@ struct BootcampTests {
         }
     }
     
-    @Suite("Cat Store")
+    @Suite("Cat Photo Store")
     struct CatStoreTests {
         @Test
         func loadCatsSucess() async {
-            let store = await CatStore(catClient: CatClientSucess())
+            let store = await CatPhotoStore(catClient: CatPhotoSucess())
             
             await store.loadCats()
             
@@ -68,7 +68,7 @@ struct BootcampTests {
         
         @Test
         func loadCatsFailed() async {
-            let store = await CatStore(catClient: CatClientFailed())
+            let store = await CatPhotoStore(catClient: CatPhotoFailed())
             
             await store.loadCats()
             

@@ -1,12 +1,12 @@
 import Foundation
 
-struct Cat: Identifiable, Codable {
+struct CatPhoto: Identifiable, Codable {
     let id: String
     let tags: [String]
 }
 
 
-extension Cat {
+extension CatPhoto {
     var imageURL: URL? {
         URL(string: "https://cataas.com/cat/\(id)")
     }

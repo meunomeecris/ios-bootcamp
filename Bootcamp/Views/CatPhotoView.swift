@@ -1,10 +1,10 @@
 import SwiftUI
 import UIComponents
+import WaterfallGrid
 
-struct CatView: View {
-    let store: CatStore
-    let columns = [GridItem(.adaptive(minimum: 100)), GridItem(.adaptive(minimum: 100))]
-
+struct CatPhotoView: View {
+    let store: CatPhotoStore
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -18,12 +18,14 @@ struct CatView: View {
                         .font(.callout)
                         .bold()
                 } else {
-                    LazyVGrid(columns: columns) {
-                        ForEach(store.cats) { cat in
-                            CardImage(url: cat.imageURL, placeholderText: "Photos not available")
-                        }
+                    WaterfallGrid(store.cats) { cat in
+                        CardImage(
+                            url: cat.imageURL,
+                            placeholderText: "Photos not available"
+                        )
                     }
-                    .padding(.horizontal, 16)
+                    .gridStyle(columns: 2)
+                    .padding()
                 }
             }
         }
@@ -34,5 +36,5 @@ struct CatView: View {
 }
 
 #Preview {
-    CatView(store: CatStore(catClient: CatClientLive()))
+    CatPhotoView(store: CatPhotoStore(catClient: CatPhotoLive()))
 }
