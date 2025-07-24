@@ -5,13 +5,25 @@ import PhotosUI
 @MainActor
 @Observable final class PhotoPickerStore {
     private(set) var showSingleImage: UIImage? = nil
-    var singleImage: PhotosPickerItem? = nil {
+    private(set) var showMultipleImages: [UIImage] = []
+    
+    var pickerSingleImage: PhotosPickerItem? = nil {
         didSet {
-            setSingleImage(from: singleImage)
+            setSingleUIimage(from: pickerSingleImage)
+        }
+    }
+    var pickerMultipleImages: [PhotosPickerItem] = [] {
+        didSet {
+            setMultipleUIimages(from: pickerMultipleImages)
         }
     }
     
-    private func setSingleImage(from selection: PhotosPickerItem?) {
+    func removeAllPhotos() {
+        showSingleImage = nil
+        showMultipleImages.removeAll()
+    }
+    
+    private func setSingleUIimage(from selection: PhotosPickerItem?) {
         guard let selection else { return }
 
         Task {
@@ -24,19 +36,10 @@ import PhotosUI
             } catch {
                 print(error)
             }
-
         }
     }
     
-    
-    private(set) var showMultipleImages: [UIImage] = []
-    var multipleImages: [PhotosPickerItem] = [] {
-        didSet {
-            setMultipleImages(from: multipleImages)
-        }
-    }
-    
-    private func setMultipleImages(from selections: [PhotosPickerItem]) {
+    private func setMultipleUIimages(from selections: [PhotosPickerItem]) {
         Task {
            for selection in selections {
                 do {
@@ -50,5 +53,6 @@ import PhotosUI
                 }
             }
         }
+//        multipleImages = []
     }
 }
