@@ -1,25 +1,18 @@
 import SwiftUI
+import UIComponents
 
 struct BreweryView: View {
     let store: BreweryStore
     
     var body: some View {
         ScrollView {
-            Text("Breweries in France")
-                .font(.largeTitle)
-                .bold()
-            
             VStack {
-                if store.isLoding {
-                    ProgressView()
-                    Text("Loading Breweries...")
-                        .font(.callout)
-                        .bold()
-                } else if let error = store.errorMessage {
-                    Text(error)
-                        .font(.title3)
-                        .bold()
-                } else {
+                TitleViewComponent(title: "Breweries in France")
+                LoadableViewComponent(
+                    data: store.breweries,
+                    errorMessage: store.errorMessage,
+                    loadingText: "Loading Paris Photos..."
+                ) { _ in
                     BreweryListView(store: store)
                 }
             }
@@ -53,7 +46,6 @@ private struct BreweryListView: View {
                         Link("Website", destination: url)
                     }
                 }
-                
                 Divider()
             }
             .foregroundStyle(.indigo)

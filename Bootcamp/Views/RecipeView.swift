@@ -8,27 +8,10 @@ struct RecipeView: View {
         ScrollView {
             VStack(spacing: 20 ) {
                 TitleViewComponent(title: "Recipe")
-
                 CategoryPicker(store: store)
-                if let selected = store.selectedCategory {
-                    Text(selected.strCategoryDescription)
-                        .font(.callout)
-                        .lineSpacing(5)
-                }
-                
                 Divider()
-                Spacer()
-
-                Button(
-                    "Search Meals",
-                    systemImage: "magnifyingglass"
-                ) {
-                    store.searchMealByCategory()
-                }
-
-                Spacer()
-
                 MealCard(
+                    store: store,
                     name: store.mealsData.first?.strMeal ?? "No data",
                     url: URL(string: store.mealsData.first?.strMealThumb ?? "https://i0.wp.com/lalignegourmande.fr/wp-content/uploads/2025/01/pomme-rouge-scaled.jpg?fit=2560%2C2560&ssl=1")
                 )
@@ -52,24 +35,31 @@ private struct CategoryPicker: View {
 
     var body: some View {
         @Bindable var bStore = store
-        HStack {
-            if let selected = store.selectedCategory {
-                Text("Selected: \(selected.strCategory)")
-                    .font(.headline)
-            }
-            if store.isLoadingCategories {
-                ProgressView("Loading categories...")
-            } else if let error = store.erroMessage {
-                Text(error)
-                    .font(.title3)
-            } else {
-                Picker("Categories", selection: $bStore.selectedCategory) {
-                    ForEach(store.categoriesData, id: \.self) { category in
-                        Text(category.strCategory)
-                            .tag(category as Category?)
-                    }
+        VStack {
+            HStack {
+                if let selected = store.selectedCategory {
+                    Text("Selected: \(selected.strCategory)")
+                        .font(.headline)
                 }
-                .pickerStyle(MenuPickerStyle())
+                LoadableViewComponent(
+                    data: store.mealsData,
+                    errorMessage: store.erroMessage,
+                    loadingText: "Loading categories..."
+                ) { _ in
+                    Picker("Categories", selection: $bStore.selectedCategory) {
+                        ForEach(store.categoriesData, id: \.self) { category in
+                            Text(category.strCategory)
+                                .tag(category as Category?)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                }
+            }
+            
+            if let selected = store.selectedCategory {
+                Text(selected.strCategoryDescription)
+                    .font(.callout)
+                    .lineSpacing(5)
             }
         }
     }
@@ -77,15 +67,23 @@ private struct CategoryPicker: View {
 
 
 private struct MealCard: View {
+    let store: RecipeStore
     let name: String
     let url: URL?
 
     var body: some View {
+        Button(
+            "Search Meals",
+            systemImage: "magnifyingglass"
+        ) {
+            store.searchMealByCategory()
+        }
+        
         VStack {
             Text(name)
                 .font(.title2)
                 .bold()
-
+            
             if let url = url {
                 CardImageComponent(
                     url: url,

@@ -7,14 +7,13 @@ struct CatPhotoView: View {
     
     var body: some View {
         ScrollView {
-            TitleViewComponent(title: "Cat Photos")
-            
             VStack {
-                if store.isLoading {
-                    ProgressViewComponent(text: "Loading Cats...")
-                } else if let error = store.errorMessage {
-                    MessageErrorComponent(error: error)
-                } else {
+                TitleViewComponent(title: "Cat Photos")
+                LoadableViewComponent(
+                    data: store.cats,
+                    errorMessage: store.errorMessage,
+                    loadingText: "Photos not available"
+                ) {_ in
                     WaterfallGrid(store.cats) { cat in
                         CardImageComponent(
                             url: cat.imageURL,

@@ -7,13 +7,13 @@ struct GaleryPhotosView: View {
     
     var body: some View {
         ScrollView {
-            TitleViewComponent(title: "Paris")
             VStack {
-                if store.isLoading {
-                    ProgressViewComponent(text: "Loading Paris Photos...")
-                } else if let error = store.errorMessage {
-                    MessageErrorComponent(error: error)
-                } else {
+                TitleViewComponent(title: "Paris")
+                LoadableViewComponent(
+                    data: store.photos,
+                    errorMessage: store.errorMessage,
+                    loadingText: "Loading Paris Photos..."
+                ) { _ in
                     GridPhotos(store: store)
                 }
             }

@@ -7,20 +7,20 @@ struct ProductView: View {
     var body: some View {
         VStack(spacing: 24) {
             TitleViewComponent(title: "Products")
-            List {
-                if !store.products.isEmpty {
+            LoadableViewComponent(
+                data: store.products,
+                errorMessage: store.errorMessage,
+                loadingText: "Looking for products..."
+            ) {_ in
+                VStack {
                     ForEach(store.products) { product in
                         ProductCard(name: product.name, price: product.price)
                     }
                     .listRowSeparator(.hidden)
                     .padding(10)
-                } else if let error = store.errorMessage {
-                    Text(error)
-                } else {
-                    ProgressView("Looking for products...")
+                    Spacer()
                 }
             }
-            .listStyle(.plain)
         }
         .task {
             await store.fecthProducts()

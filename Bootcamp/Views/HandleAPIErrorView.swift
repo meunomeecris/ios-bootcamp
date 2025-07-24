@@ -12,26 +12,28 @@ struct HandleAPIErrorView: View {
             VStack {
                 TitleViewComponent(title: "The 3rr0r")
                     .foregroundStyle(.white)
-                
                 Spacer()
-                
-                Button {
-                    store.loadData()
-                    AudioServicesPlayAlertSound(1030)
-                } label: {
-                    Text("Show me")
+                LoadableViewComponent(
+                    data: store.loadData,
+                    errorMessage: store.messageError,
+                    loadingText: "Photos not available"
+                ) {_ in
+                    Button {
+                        store.loadData()
+                        AudioServicesPlayAlertSound(1030)
+                    } label: {
+                        Text("Show me")
+                    }
+                    .font(.title2)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .padding(30)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.blue)
+                            .shadow(color:. yellow, radius: 1, x: 10, y: 10)
+                    )
                 }
-                .font(.title2)
-                .foregroundStyle(.white)
-                .bold()
-                .padding(30)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.blue)
-                        .shadow(color:. yellow, radius: 1, x: 10, y: 10)
-                    
-                )
-                
                 Spacer()
             }
         }

@@ -3,7 +3,7 @@ import UIComponents
 
 struct AlertView: View {
     let store: AlertStore
-
+    
     var body: some View {
         @Bindable var bStore = store
         ZStack {
@@ -13,18 +13,18 @@ struct AlertView: View {
                 TitleViewComponent(title: "Alerts")
                     .foregroundStyle(.white)
                 Spacer()
-
+                
                 ForEach(store.alertsData) { alert in
-                    ButtonAlertComponent(
+                    ButtonAlert(
                         name: alert.name,
                         color: alert.fontColor,
                         bgColor: alert.backgroundColor) {
                             Task {
                                 try await store.onShowAlertTapped(for: alert)
                             }
-                    }
+                        }
                 }
-
+                
                 Spacer()
             }
         }
