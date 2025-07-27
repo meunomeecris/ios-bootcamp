@@ -8,6 +8,9 @@ xcuserdata/
 ## Obj-C/Swift specific
 *.hmap
 
+## API Keys
+Secrets.plist
+
 ## App packaging
 *.ipa
 *.dSYM.zip
