@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "localhost-file-not-found.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
