@@ -3,14 +3,14 @@ import UIComponents
 import WaterfallGrid
 
 struct GaleryPhotosView: View {
-    @Bindable var store: GaleryPhotosStore
+    @Bindable var store: ParisPhotoStore
     
     var body: some View {
         ScrollView {
             VStack {
                 TitleViewComponent(title: "Paris")
                 LoadableViewComponent(
-                    data: store.photos,
+                    data: store.allParisPhotos,
                     errorMessage: store.errorMessage,
                     loadingText: "Loading Paris Photos..."
                 ) { _ in
@@ -19,20 +19,20 @@ struct GaleryPhotosView: View {
             }
         }
         .task {
-            await store.loadPhotos()
+            await store.loadParisPhoto()
         }
     }
 }
 
 #Preview {
-    GaleryPhotosView(store: GaleryPhotosStore(galeryPhotosClient: GaleryPhotosMock()))
+    GaleryPhotosView(store: ParisPhotoStore(client: ParisPhotoMock()))
 }
 
 private struct GridPhotos: View {
-    @Bindable var store: GaleryPhotosStore
+    @Bindable var store: ParisPhotoStore
     
     var body: some View {
-        WaterfallGrid(store.photos) { photo in
+        WaterfallGrid(store.allParisPhotos) { photo in
             Button {
                 store.infosButtonTapped(for: photo)
             } label: {

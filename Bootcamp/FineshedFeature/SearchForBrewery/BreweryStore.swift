@@ -5,8 +5,8 @@ import Foundation
 final class BreweryStore {
     private let breweryClient: BreweryClient
 
-    init(breweryClient: BreweryClient) {
-        self.breweryClient = breweryClient
+    init(client: BreweryClient) {
+        self.breweryClient = client
     }
 
     var breweries: [Brewery] = []

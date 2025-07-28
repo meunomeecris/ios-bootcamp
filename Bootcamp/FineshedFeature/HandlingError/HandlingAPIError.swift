@@ -1,6 +1,6 @@
 import Foundation
 
-final class HandleAPIError {
+final class HandlingAPIError {
     func fetchData() async throws {
         guard let url = URL(string: "https://www.mocky.io") else {
             throw APIError.invalidURL

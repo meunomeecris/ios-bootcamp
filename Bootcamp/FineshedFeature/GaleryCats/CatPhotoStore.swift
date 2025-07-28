@@ -5,8 +5,8 @@ import Foundation
 final class CatPhotoStore {
     private var catClient: CatPhotoClient
 
-    init(catClient: CatPhotoClient) {
-        self.catClient = catClient
+    init(client: CatPhotoClient) {
+        self.catClient = client
     }
 
     var cats: [CatPhoto] = []

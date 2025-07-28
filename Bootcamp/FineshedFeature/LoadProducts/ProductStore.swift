@@ -5,8 +5,8 @@ import Foundation
 final class ProductStore {
     private let productClient: ProductClient
 
-    init(productClient: ProductClient) {
-        self.productClient = productClient
+    init(client: ProductClient) {
+        self.productClient = client
     }
 
     var products: [Product] = []

@@ -3,7 +3,7 @@ import AVFoundation
 import UIComponents
 
 struct HandleAPIErrorView: View {
-    @Bindable var store = HandleAPIErrorStore()
+    @Bindable var store = HandlingAPIErrorStore()
     
     var body: some View {
         ZStack {

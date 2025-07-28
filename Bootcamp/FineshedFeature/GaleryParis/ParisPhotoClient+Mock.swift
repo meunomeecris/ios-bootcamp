@@ -1,7 +1,7 @@
 import Foundation
 
-final class GaleryPhotosMock: GaleryPhotosClient {
-    func fetchPhotos() async throws -> [Photo] {
+final class ParisPhotoMock: ParisPhotoClient {
+    func fetchPhotos() async throws -> [ParisPhoto] {
         try await Task.sleep(nanoseconds: 1_000_000_000)
 
         guard let url = Bundle.main.url(forResource: "parisPhotosMock", withExtension: "json"),
@@ -10,14 +10,14 @@ final class GaleryPhotosMock: GaleryPhotosClient {
             throw URLError(.fileDoesNotExist)
         }
 
-        return try JSONDecoder().decode([Photo].self, from: data)
+        return try JSONDecoder().decode([ParisPhoto].self, from: data)
     }
 }
 
-final class GaleryPhotosSuccess: GaleryPhotosClient {
-    func fetchPhotos() async throws -> [Photo] {
+final class ParisPhotoSuccess: ParisPhotoClient {
+    func fetchPhotos() async throws -> [ParisPhoto] {
         return [
-            Photo(
+            ParisPhoto(
                 id: "1",
                 title: "meme",
                 imageURL: "https://i.etsystatic.com/44616642/r/il/ab6e69/5063453436/il_570xN.5063453436_fu7w.jpg",
@@ -28,8 +28,8 @@ final class GaleryPhotosSuccess: GaleryPhotosClient {
     }
 }
 
-final class GaleryPhotosFailed: GaleryPhotosClient {
-    func fetchPhotos() async throws -> [Photo] {
+final class ParisPhotoFailed: ParisPhotoClient {
+    func fetchPhotos() async throws -> [ParisPhoto] {
         throw URLError(.badURL)
     }
 }

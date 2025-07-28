@@ -31,5 +31,5 @@ struct PetBookView: View {
 }
 
 #Preview {
-    PetBookView(store: PetBookStore(petClient: PetClientMock()))
+    PetBookView(store: PetBookStore(client: PetClientMock()))
 }

@@ -25,7 +25,7 @@ struct BreweryView: View {
 
 
 #Preview {
-    BreweryView(store: BreweryStore(breweryClient: BreweryClientLive()))
+    BreweryView(store: BreweryStore(client: BreweryClientLive()))
 }
 
 private struct BreweryListView: View {

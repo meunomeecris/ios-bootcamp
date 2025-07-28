@@ -1,19 +1,6 @@
 import SwiftUI
 
-struct Root: View {
-    private let galeryStore = GaleryPhotosStore(galeryPhotosClient: GaleryPhotosMock())
-    private let catStore = CatPhotoStore(catClient: CatPhotoLive())
-    private let breweryStore = BreweryStore(breweryClient: BreweryClientLive())
-    private let recipeStore = RecipeStore(recipeClient: RecipeClientLive())
-    private let locationStore = LocationStore()
-    private let productStore = ProductStore(productClient: ProductClientMock())
-    private let alertStore = AlertStore()
-    private let taskStore = TaskStore()
-    private let petBookStore = PetBookStore(petClient: PetClientMock())
-    private let photoPickerStore = PhotoPickerStore()
-    private let newsStore = NewsStore(client: NewsClientLive())
-    
-    
+struct Root: View {    
     var body: some View {
         NavigationStack {
             List(RootNavigation.allCases) { project in
@@ -25,8 +12,20 @@ struct Root: View {
             .listStyle(.plain)
             .navigationTitle("🚀 Mini Projects")
         }
-        
     }
+    
+    
+    private let galeryStore = ParisPhotoStore(client: ParisPhotoMock())
+    private let catStore = CatPhotoStore(client: CatPhotoLive())
+    private let breweryStore = BreweryStore(client: BreweryClientLive())
+    private let recipeStore = RecipeStore(client: RecipeClientLive())
+    private let locationStore = LocationStore()
+    private let productStore = ProductStore(client: ProductClientMock())
+    private let alertStore = AlertStore()
+    private let taskStore = TaskStore()
+    private let petBookStore = PetBookStore(client: PetClientMock())
+    private let photoPickerStore = PhotoPickerStore()
+    private let newsStore = NewsStore(client: NewsClientLive())
     
     @ViewBuilder
     func destination(for project: RootNavigation) -> some View {

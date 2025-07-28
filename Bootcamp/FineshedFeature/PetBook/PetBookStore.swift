@@ -5,8 +5,8 @@ import Foundation
 final class PetBookStore {
     private let petClient: PetClient
     
-    init(petClient: PetClient) {
-        self.petClient = petClient
+    init(client: PetClient) {
+        self.petClient = client
     }
     
     var pets: [Pet] = []

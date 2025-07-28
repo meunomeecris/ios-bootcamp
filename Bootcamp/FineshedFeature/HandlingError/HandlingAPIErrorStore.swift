@@ -2,8 +2,8 @@ import Foundation
 
 @MainActor
 @Observable
-final class HandleAPIErrorStore {
-    let clientAPI = HandleAPIError()
+final class HandlingAPIErrorStore {
+    let clientAPI = HandlingAPIError()
     var showAlert: Bool = false
     var messageError: String = ""
     

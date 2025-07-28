@@ -5,8 +5,8 @@ import Foundation
 final class RecipeStore {
     private let recipeClient: RecipeClient
 
-    init(recipeClient: RecipeClient) {
-        self.recipeClient = recipeClient
+    init(client: RecipeClient) {
+        self.recipeClient = client
     }
 
     var categoriesData: [Category] = []

@@ -44,6 +44,6 @@ struct CatPhotoView: View {
 }
 
 #Preview {
-    CatPhotoView(store: CatPhotoStore(catClient: CatPhotoLive()))
+    CatPhotoView(store: CatPhotoStore(client: CatPhotoLive()))
 }
 

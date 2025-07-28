@@ -7,7 +7,7 @@ struct BootcampTests {
     struct BreweryStoreTests {
         @Test
         func loadBreweries() async {
-            let store = await BreweryStore(breweryClient: BreweryClientSucess())
+            let store = await BreweryStore(client: BreweryClientSucess())
             
             await store.loadBreweries()
             
@@ -18,7 +18,7 @@ struct BootcampTests {
         
         @Test
         func loadBreweriesCatchError() async {
-            let store = await BreweryStore(breweryClient: BreweryClientFailed())
+            let store = await BreweryStore(client: BreweryClientFailed())
             
             await store.loadBreweries()
             
@@ -32,7 +32,7 @@ struct BootcampTests {
     struct ProductStoreTests {
         @Test
         func loadProductsSucess() async {
-            let store = await ProductStore(productClient: ProductClientSucess())
+            let store = await ProductStore(client: ProductClientSucess())
             
             await store.fecthProducts()
             
@@ -43,7 +43,7 @@ struct BootcampTests {
         
         @Test
         func loadProductsFailed() async {
-            let store = await ProductStore(productClient: ProductClientFailed())
+            let store = await ProductStore(client: ProductClientFailed())
             
             await store.fecthProducts()
             
@@ -57,7 +57,7 @@ struct BootcampTests {
     struct CatStoreTests {
         @Test
         func loadCatsSucess() async {
-            let store = await CatPhotoStore(catClient: CatPhotoSucess())
+            let store = await CatPhotoStore(client: CatPhotoSucess())
             
             await store.loadCats()
             
@@ -68,7 +68,7 @@ struct BootcampTests {
         
         @Test
         func loadCatsFailed() async {
-            let store = await CatPhotoStore(catClient: CatPhotoFailed())
+            let store = await CatPhotoStore(client: CatPhotoFailed())
             
             await store.loadCats()
             
@@ -82,7 +82,7 @@ struct BootcampTests {
     struct RecipeStoreTests {
         @Test
         func loadRecipeSucess() async {
-            let store = await RecipeStore(recipeClient: RecipeClientSucess())
+            let store = await RecipeStore(client: RecipeClientSucess())
             
             await store.loadCategories()
             await store.loadMeals()
@@ -95,7 +95,7 @@ struct BootcampTests {
         
         @Test
         func loadRecipeFailed() async throws {
-            let store = await RecipeStore(recipeClient: RecipeClientFailed())
+            let store = await RecipeStore(client: RecipeClientFailed())
             
             await store.loadCategories()
             await store.loadMeals()
@@ -111,31 +111,31 @@ struct BootcampTests {
     struct GaleryPhotosStoreTests {
         @Test
         func loadPhotoSuccess() async {
-            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
+            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
             
             await store.loadPhotos()
             
             await #expect(store.isLoading == false)
-            await #expect(!store.photos.isEmpty)
+            await #expect(!store.allParisPhotos.isEmpty)
             await #expect(store.errorMessage == nil)
         }
         
         @Test
         func loadPhotoFailed() async {
-            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosFailed())
+            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoFailed())
             
             await store.loadPhotos()
             
             await #expect(store.isLoading == false)
-            await #expect(store.photos.isEmpty)
+            await #expect(store.allParisPhotos.isEmpty)
             await #expect(store.errorMessage != nil)
         }
         
         @Test
         func infosButtonTapped() async throws {
-            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
+            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
             await store.loadPhotos()
-            let unwrappedPhoto = try await #require(store.photos.first)
+            let unwrappedPhoto = try await #require(store.allParisPhotos.first)
             
             await store.infosButtonTapped(for: unwrappedPhoto)
             
@@ -144,9 +144,9 @@ struct BootcampTests {
         
         @Test
         func didDismiss() async throws {
-            let store = await GaleryPhotosStore(galeryPhotosClient: GaleryPhotosSuccess())
+            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
             await store.loadPhotos()
-            let unwrappedPhoto = try await #require(store.photos.first)
+            let unwrappedPhoto = try await #require(store.allParisPhotos.first)
             await store.infosButtonTapped(for: unwrappedPhoto)
             await store.didDismiss()
             await #expect(store.selectedPhoto == nil)
@@ -227,21 +227,21 @@ struct BootcampTests {
     @Suite("PetBook Tests")
     struct PetBookStoreTests {
         @Test func fetchPetSuccess() async throws {
-            let store = await PetBookStore(petClient: PetClientSucess())
+            let store = await PetBookStore(client: PetClientSucess())
             try await store.fetchPet()
             await #expect(store.errorMessage == nil)
             await #expect(!store.pets.isEmpty)
         }
         
         @Test func fetchPetFailed() async throws {
-            let store = await PetBookStore(petClient: PetClientFailed())
+            let store = await PetBookStore(client: PetClientFailed())
             try await store.fetchPet()
             await #expect(store.errorMessage != nil)
             await #expect(store.pets.isEmpty)
         }
         
         @Test func toogleFavoriteSuccess() async throws {
-            let store = await PetBookStore(petClient: PetClientSucess())
+            let store = await PetBookStore(client: PetClientSucess())
             try await store.fetchPet()
             await store.toggleFavorite(for: store.pets[0])
             await #expect(store.pets[0].isFavorite == false)
