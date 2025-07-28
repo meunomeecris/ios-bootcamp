@@ -26,7 +26,10 @@ struct Root: View {
     private let petBookStore = PetBookStore(client: PetClientMock())
     private let photoPickerStore = PhotoPickerStore()
     private let newsStore = NewsStore(client: NewsClientLive())
-    
+    private let printPhotoStore = PrintPhotoStore(
+        clientGet: GetPhotoClientLive(),
+        clientPost: PostPrintClientLive()
+    )
     @ViewBuilder
     func destination(for project: RootNavigation) -> some View {
         switch project {
@@ -53,6 +56,8 @@ struct Root: View {
         case .news:
             ///Fix: Store the searchText to return a search on the mean view
             NewsView(store: newsStore)
+        case .printPhoto:
+            PrintPhotoRoot(store: printPhotoStore)
         }
     }
 }

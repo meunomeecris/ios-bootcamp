@@ -15,6 +15,7 @@ enum RootNavigation: String, CaseIterable, Identifiable {
     case petbook
     case photoPicker
     case news
+    case printPhoto
     
     var title: String {
         switch self {
@@ -29,6 +30,7 @@ enum RootNavigation: String, CaseIterable, Identifiable {
         case .petbook: return "PetBook Photos"
         case .photoPicker: return "Picker Photos"
         case .news: return "Search News"
+        case .printPhoto: return "Print Photos"
         }
     }
 }
