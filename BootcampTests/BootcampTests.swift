@@ -111,9 +111,9 @@ struct BootcampTests {
     struct GaleryPhotosStoreTests {
         @Test
         func loadPhotoSuccess() async {
-            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
+            let store = await ParisPhotoStore(client: ParisPhotoSuccess())
             
-            await store.loadPhotos()
+            await store.loadParisPhoto()
             
             await #expect(store.isLoading == false)
             await #expect(!store.allParisPhotos.isEmpty)
@@ -122,9 +122,9 @@ struct BootcampTests {
         
         @Test
         func loadPhotoFailed() async {
-            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoFailed())
+            let store = await ParisPhotoStore(client: ParisPhotoFailed())
             
-            await store.loadPhotos()
+            await store.loadParisPhoto()
             
             await #expect(store.isLoading == false)
             await #expect(store.allParisPhotos.isEmpty)
@@ -133,8 +133,8 @@ struct BootcampTests {
         
         @Test
         func infosButtonTapped() async throws {
-            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
-            await store.loadPhotos()
+            let store = await ParisPhotoStore(client: ParisPhotoSuccess())
+            await store.loadParisPhoto()
             let unwrappedPhoto = try await #require(store.allParisPhotos.first)
             
             await store.infosButtonTapped(for: unwrappedPhoto)
@@ -144,8 +144,8 @@ struct BootcampTests {
         
         @Test
         func didDismiss() async throws {
-            let store = await ParisPhotoStore(galeryPhotosClient: ParisPhotoSuccess())
-            await store.loadPhotos()
+            let store = await ParisPhotoStore(client: ParisPhotoSuccess())
+            await store.loadParisPhoto()
             let unwrappedPhoto = try await #require(store.allParisPhotos.first)
             await store.infosButtonTapped(for: unwrappedPhoto)
             await store.didDismiss()
@@ -247,4 +247,119 @@ struct BootcampTests {
             await #expect(store.pets[0].isFavorite == false)
         }
     }
+    
+    @Suite("Print Photo")
+    struct PrintPhotoTests {
+        @Test 
+        func sendOrderSuccess() async throws {
+            let store = await PrintPhotoStore(
+                clientGet: GetPhotoClientSuccess(),
+                clientPost: PostPrintClientLive()
+            )
+            await store.sendOrderTapped()
+            await #expect(store.orderPrintPhotos.isEmpty)     
+        }
+        
+        @Test
+        func sendOrderFailed() async throws {
+            let store = await PrintPhotoStore(
+                clientGet: GetPhotoClientFailed(),
+                clientPost: PostPrintClientLive()
+            )
+            await store.sendOrderTapped()
+            await #expect(store.orderPrintPhotos.isEmpty)
+        }
+        
+        
+        @Test
+        func fetchFotosSuccess() async throws {
+            let store = await PrintPhotoStore(
+                clientGet: GetPhotoClientSuccess(),
+                clientPost: PostPrintClientLive()
+            )
+            await store.fetchPhotos()
+            await #expect(!store.allPhotos.isEmpty)   
+            await #expect(store.messageError == nil)
+            await #expect(store.isPhotosLoading == false)
+        }
+        
+        @Test
+        func fetchFotosFailed() async throws {
+            let store = await PrintPhotoStore(
+                clientGet: GetPhotoClientFailed(),
+                clientPost: PostPrintClientLive()
+            )
+            await store.fetchPhotos()
+            await #expect(store.allPhotos.isEmpty)   
+            await #expect(store.messageError != nil)
+            await #expect(store.isPhotosLoading == false)
+        }
+        
+        @Test 
+        func unselectPhoto() async throws {
+          
+        }
+        
+        @Test
+        func selectPhoto() async throws {
+            
+        }
+        
+        @Test 
+        func createOrderPrintPhotoSuccess() async throws {
+            
+        }
+        
+        @Test 
+        func createOrderPrintPhotoFailed() async throws {
+            
+        }
+
+    }
 }
+
+/*func createOrderPrintPhoto(with photo: PrintPhoto) {
+ let order = OrderPrintPhoto(
+ id: orderPrintPhotos.count + 1,
+ total: selectedAllPhotos.count,
+ photos: selectedAllPhotos,
+ date: Date()
+ )
+ orderPrintPhotos.append(order)
+ }
+ 
+ 
+ func selectPhotoButtonTapped(photo: inout PrintPhoto) {
+ photo.isSelected.toggle()
+ titleOrderInput = ""
+ }
+ 
+ 
+ 
+ func sendOrderTapped() {
+ Task {
+ do {
+ try await clientPost.sendOrder(for: orderPrintPhotos)
+ } catch {
+ print("Failed to send order: \(error.localizedDescription)")
+ }
+ }
+ orderPrintPhotos.removeAll()
+ }
+ 
+ func selectPhotoButtonTapped(photo: inout PrintPhoto) {
+ photo.isSelected.toggle()
+ titleOrderInput = ""
+ }
+ 
+ private func fetchPhotos() {
+ Task {
+ isPhotosLoading = true
+ do {
+ allPhotos = try await clientGet.getPhoto()
+ } catch {
+ messageError = "Loading failed \(error.localizedDescription)"
+ }
+ isPhotosLoading = false
+ }
+ }*/

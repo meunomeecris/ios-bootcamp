@@ -14,7 +14,6 @@ struct Root: View {
         }
     }
     
-    
     private let galeryStore = ParisPhotoStore(client: ParisPhotoMock())
     private let catStore = CatPhotoStore(client: CatPhotoLive())
     private let breweryStore = BreweryStore(client: BreweryClientLive())
@@ -30,6 +29,8 @@ struct Root: View {
         clientGet: GetPhotoClientLive(),
         clientPost: PostPrintClientLive()
     )
+    private let movieStore = MovieStore(client: MovieClientLive())
+    
     @ViewBuilder
     func destination(for project: RootNavigation) -> some View {
         switch project {
@@ -54,10 +55,11 @@ struct Root: View {
         case .photoPicker:
             PhotoPickerView(store: photoPickerStore)
         case .news:
-            ///Fix: Store the searchText to return a search on the mean view
             NewsView(store: newsStore)
         case .printPhoto:
             PrintPhotoRoot(store: printPhotoStore)
+        case .myMovies:
+            MyMovies(store: movieStore)
         }
     }
 }

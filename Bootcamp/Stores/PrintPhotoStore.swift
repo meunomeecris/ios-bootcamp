@@ -38,7 +38,6 @@ final class PrintPhotoStore {
     }
     
     func OrderPrintPhotos() {
-        orderPrintPhotos.removeAll()
         Task {
             try await clientPost.sendOrder(for: orderPrintPhotos)
         }

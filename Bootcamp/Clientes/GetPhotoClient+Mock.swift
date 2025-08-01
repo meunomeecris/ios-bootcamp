@@ -27,3 +27,41 @@ final class GetPhotoClientMock: GetPhotoClient {
          ]
     }
 }
+
+final class GetPhotoClientSuccess: GetPhotoClient {
+    func getPhoto() async throws -> [PrintPhoto] {
+        return [
+            PrintPhoto(
+                id: "0", 
+                author: "Alejandro Escamilla", 
+                width: 5000, 
+                height: 3333, 
+                url: "https://unsplash.com/photos/yC-Yzbqy7PY", 
+                downloadURL: "https://picsum.photos/id/0/5000/3333"
+            )
+        ]
+    }
+}
+
+final class GetPhotoClientFailed: GetPhotoClient {
+    func getPhoto() async throws -> [PrintPhoto] {
+        throw URLError(.cancelled)
+    }
+}
+
+
+final class GetPhotoClientSelected: GetPhotoClient {
+    func getPhoto() async throws -> [PrintPhoto] {
+        return [
+            PrintPhoto(
+                id: "0", 
+                author: "Alejandro Escamilla", 
+                width: 5000, 
+                height: 3333, 
+                url: "https://unsplash.com/photos/yC-Yzbqy7PY", 
+                downloadURL: "https://picsum.photos/id/0/5000/3333",
+                isSelected: true
+            )
+        ]
+    }
+}
