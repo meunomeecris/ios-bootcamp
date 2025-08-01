@@ -11,7 +11,7 @@ I designed this program to go beyond tutorials and focus on building real apps u
 - CI/CD and Unit Test
 - Keychain and app security
 - Modularization with SPM
-- Clean, professional code
+- S.O.L.I.D Principles, clean and professional code
 
 
 ## Concepts That I master
@@ -32,7 +32,7 @@ I designed this program to go beyond tutorials and focus on building real apps u
   - Async/Await
   - Task and structured concurrency
   - MVVM and clean separation of concerns
-  - Avoiding common issues (e.g. force-unwrapping, mixing logic in Views)
+  - Avoiding common issues (e.g., force-unwrapping, mixing logic in Views)
 
 🌐 Swift Networking
   - Fetching data with URLSession + async/await
@@ -43,7 +43,7 @@ I designed this program to go beyond tutorials and focus on building real apps u
 🧪 Swift Testing
   - Writing clean @Test functions with #expect
   - Testing async code, state changes, and view logic
-  - Mocking dependencies (e.g. fake network clients)
+  - Mocking dependencies (e.g., fake network clients)
   - Organizing test suites for clarity and maintenance
 
 ## Contact
